@@ -16,4 +16,18 @@
         android:layout_below="@id/textview"
         android:text="Start Service"/>
 
+    <Button
+        android:id="@+id/looperActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startService"
+        android:text="Looper Activity"/>
+
+    <Button
+        android:id="@+id/foregroundService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/looperActivity"
+        android:text="Foreground Service"/>
+
 </RelativeLayout>

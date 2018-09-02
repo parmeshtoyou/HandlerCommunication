@@ -2,6 +2,8 @@ package com.example.handlercommunication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
@@ -29,6 +31,24 @@ public class MainActivity extends AppCompatActivity implements CustomHandler.App
                 CustomHandler handler = new CustomHandler(MainActivity.this);
                 intent.putExtra("handler", new Messenger(handler));
                 startService(intent);
+            }
+        });
+
+        findViewById(R.id.looperActivity).setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LooperActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.foregroundService).setOnClickListener(new Button.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent foregroundIntent = new Intent(MainActivity.this, ForegroundService.class);
+                foregroundIntent.setAction(ForegroundService.START_ACTION);
+                startForegroundService(foregroundIntent);
             }
         });
     }
